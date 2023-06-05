@@ -3,7 +3,7 @@ package com.labuladong.study;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PreOrder {
+public class PostOrderNTree {
 
     static class Node {
         public int val;
@@ -28,18 +28,17 @@ public class PreOrder {
         return list;
     }
 
-    static List<Integer> list = new LinkedList<>();
+    List<Integer> list = new LinkedList<>();
 
-    static void traverse(Node root) {
+    private void traverse(Node root) {
         if (root == null) {
             return;
         }
-        list.add(root.val);
-        if (root.children == null) {
-            return;
-        }
+
         for (Node node : root.children) {
             traverse(node);
         }
+
+        list.add(root.val);
     }
 }
