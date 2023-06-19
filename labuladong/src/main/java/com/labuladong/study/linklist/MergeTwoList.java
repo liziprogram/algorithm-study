@@ -45,10 +45,12 @@ public class MergeTwoList {
             p = p.next;
         }
 
+        // 直接指向list1即可
         if (list1 != null) {
             p.next = list1;
         }
 
+        // 直接指向list2即可
         if (list2 != null) {
             p.next = list2;
         }
@@ -66,10 +68,13 @@ public class MergeTwoList {
         if (p2 == null) {
             return p1;
         }
+
+        // p1更小，排前面，p1继续递归
         if (p1.val <= p2.val) {
             p1.next = mergeTwoListsByRecursion(p1.next, p2);
             return p1;
         } else {
+            // p2更小，排前面，p2继续递归
             p2.next = mergeTwoListsByRecursion(p1, p2.next);
             return p2;
         }
